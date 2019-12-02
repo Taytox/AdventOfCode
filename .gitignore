@@ -21,3 +21,5 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+/2019/Day1/AdventOfCode/nbproject/private/
+/2019/AdventOfCode/nbproject/private/
