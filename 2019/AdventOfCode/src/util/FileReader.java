@@ -3,27 +3,27 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Day1;
+package util;
 
+/**
+ *
+ * @author Euan
+ */
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-
-/**
- * Class to read the input files required for the advent of code. 
- * @author Euan
- */
-public class ReadInput {
-    
-    public static List ReadInputDouble() {
+public class FileReader {
+    public static Double[] ReadInputDouble(String Filename) {
     List<Double> doubleList = new ArrayList<Double>();
+    Double[] doubleArray = new Double[doubleList.size()];
+   
     String data; 
     double dataConvertedToDouble;
 
         try{ 
-            File myInput = new File("Input.txt");
+            File myInput = new File("Resources\\" + Filename);
             Scanner myReader = new Scanner(myInput);
             while (myReader.hasNextLine()){
                 data = myReader.nextLine();
@@ -34,6 +34,7 @@ public class ReadInput {
         } catch (FileNotFoundException e){
             System.out.println("An Error Occurred.");
         }
-        return doubleList;
+        doubleArray = doubleList.toArray(doubleArray);
+        return doubleArray;
     }
 }
