@@ -12,10 +12,11 @@ package AdventOfCode2019;
 public class Module {
     double mass;
     double requiredFuel;
+    double totalFuelForModule;
 
     public Module(double mass) {
         this.mass = mass;
-        requiredFuel = calculateRequiredFuel();
+        setRequiredFuel();
     }
     
     
@@ -26,13 +27,36 @@ public class Module {
         return mass;
     }
 
-    public double getRequiredFuel() {
+    public void setRequiredFuel() {
+        
+        calculateFuel(mass);
+        
+        //requiredFuel = Math.floor(mass / 3)-2; //fuel required for module mass. 
+        
+    }
+    
+    public double getRequiredFuel(){
         return requiredFuel;
     }
     
-    private double calculateRequiredFuel(){
-        return(Math.floor((mass/3)))-2; 
+    private void calculateFuel(double fuel){
+                
+        if(fuel > 0){    
+            
+            
+          // System.out.print(massToCalculateFor + " + ");
+            fuel = Math.floor(fuel / 3)-2;
+            if(fuel > 0){
+            requiredFuel = requiredFuel + fuel;
+            }
+            
+            calculateFuel(fuel);
+        }
+        
     }
-
+    
+    
+    
+    
     
 }

@@ -15,7 +15,7 @@ public class MissionControl {
         public static void main(String[] args) {
         // TODO code application logic here
         Rocket SantaRescue = new Rocket(FileReader.ReadInputDouble("1.1.txt"));
-        System.out.println("The Fuel Required for this rocket is " + SantaRescue.fuelRequiredForRocketMass());
+        System.out.println("The Fuel Required for this rocket is " + SantaRescue.getFuelRequiredForRocket());
         
         
     }
