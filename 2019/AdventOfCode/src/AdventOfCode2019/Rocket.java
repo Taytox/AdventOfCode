@@ -21,32 +21,19 @@ public class Rocket {
         for (Double d : moduleMasses){
             modulesOnRocket.add(new Module(d));
         }
-        
+        //modulesOnRocket.add(new Module(1969));
+        setFuelRequiredForRocket();
         
     }
     
 public void setFuelRequiredForRocket(){
-   double fuelRequiredForModules = 0;
-   double fuelRequiredForFuel = 0;
+
     for(Module m : modulesOnRocket){
-       fuelRequiredForModules = fuelRequiredForModules + m.getRequiredFuel();
+       fuelRequiredForRocket = fuelRequiredForRocket + m.getRequiredFuel();
         }
-    calculateRequiredFuel(fuelRequiredForModules);
-    fuelRequiredForRocket = fuelRequiredForRocket + fuelRequiredForModules;
+    
     }
 public double getFuelRequiredForRocket(){
     return fuelRequiredForRocket;
 }
-private void calculateRequiredFuel(double massToCalculateFor){
-        
-        if(massToCalculateFor > 0){
-            
-            fuelRequiredForRocket = fuelRequiredForRocket + massToCalculateFor;
-          // System.out.print(massToCalculateFor + " + ");
-            massToCalculateFor = Math.floor(massToCalculateFor / 3)-2;
-            calculateRequiredFuel(massToCalculateFor);
-        }
-        
-    }
-
 }

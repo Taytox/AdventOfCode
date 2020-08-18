@@ -29,12 +29,33 @@ public class Module {
 
     public void setRequiredFuel() {
         
-        requiredFuel = Math.floor(mass / 3)-2;
+        calculateFuel(mass);
+        
+        //requiredFuel = Math.floor(mass / 3)-2; //fuel required for module mass. 
+        
     }
     
     public double getRequiredFuel(){
         return requiredFuel;
     }
+    
+    private void calculateFuel(double fuel){
+                
+        if(fuel > 0){    
+            
+            
+          // System.out.print(massToCalculateFor + " + ");
+            fuel = Math.floor(fuel / 3)-2;
+            if(fuel > 0){
+            requiredFuel = requiredFuel + fuel;
+            }
+            
+            calculateFuel(fuel);
+        }
+        
+    }
+    
+    
     
     
     
