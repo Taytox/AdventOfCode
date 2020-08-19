@@ -16,6 +16,7 @@ public class Rocket {
     static List<Module> modulesOnRocket = new ArrayList<Module>();
     double fuelRequiredForRocket;
     double rocketMass;
+    ShipsComputer mainComputer = new ShipsComputer();
 
     public Rocket(Double... moduleMasses) {
         for (Double d : moduleMasses){
@@ -23,6 +24,8 @@ public class Rocket {
         }
         //modulesOnRocket.add(new Module(1969));
         setFuelRequiredForRocket();
+        mainComputer.loadProgram(",","2.1.txt");
+        mainComputer.runProgram();
         
     }
     

@@ -37,4 +37,29 @@ public class FileReader {
         doubleArray = doubleList.toArray(doubleArray);
         return doubleArray;
     }
+    
+    public static int[] readIntBySeperator(String seperator, String Filename){
+        String data;
+        String[] seperatedData;
+        List<Integer> intList = new ArrayList<Integer>();
+        //int[] intArray = new int[intList.size()];
+        
+        try{ 
+            File myInput = new File("Resources\\" + Filename);
+            Scanner myReader = new Scanner(myInput).useDelimiter(",");
+
+            while (myReader.hasNextInt()) {
+                intList.add(myReader.nextInt());
+            }
+            myReader.close();
+            }
+        catch (FileNotFoundException e){
+            System.out.println("An Error Occurred.");
+        }
+        
+
+        System.out.println();
+        int[] intArray = intList.stream().mapToInt(i->i).toArray();
+        return intArray;
+    }
 }
